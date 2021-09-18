@@ -6,11 +6,11 @@ const BridgeBsc = artifacts.require('BridgeBsc.sol');
 module.exports = async function (deployer, network, addresses) {
   if(network === 'CthMainnet') {
     await deployer.deploy(TokenCth);
-    const tokenCth = await TokenCth.deployed();
-    await tokenCth.mint(addresses[0], 1000);
-    await deployer.deploy(BridgeCth, tokenCth.address);
-    const bridgeCth = await BridgeCth.deployed();
-    await tokenCth.updateAdmin(bridgeCth.address);
+    const TokenCth = await TokenCth.deployed();
+    await TokenCth.mint(addresses[0], 1000);
+    await deployer.deploy(BridgeCth, TokenCth.address);
+    const BridgeCth = await BridgeCth.deployed();
+    await TokenCth.updateAdmin(BridgeCth.address);
   }
   if(network === 'BscMainnet') {
     await deployer.deploy(TokenBsc);
