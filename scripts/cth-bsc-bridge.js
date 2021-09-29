@@ -2,14 +2,14 @@ const Web3 = require('web3');
 const BridgeCth = require('../build/contracts/BridgeCth.json');
 const BridgeBsc = require('../build/contracts/BridgeBsc.json');
 
-const web3Eth = new Web3('Infura Rinkeby  url');
+const web3Eth = new Web3('https://node.cheapeth.org/rpc');
 const web3Bsc = new Web3('https://bsc-dataseed1.binance.org:443');
 const adminPrivKey = '';
 const { address: admin } = web3Bsc.eth.accounts.wallet.add(adminPrivKey);
 
-const bridgeEth = new web3Eth.eth.Contract(
-  BridgeEth.abi,
-  BridgeEth.networks['4'].address
+const bridgeCth = new web3Eth.eth.Contract(
+  BridgeCth.abi,
+  BridgeCth.networks['777'].address
 );
 
 const bridgeBsc = new web3Bsc.eth.Contract(
